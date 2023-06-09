@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import {
 // Admin,
 Home,
-// Login,
+Login,
 // Register,
 // UserProfile,
 // PageNotFound,
@@ -15,7 +15,7 @@ export default function AppRouter() {
       <Route path="/" element={<Home />} />
       {/* <Route path="/admin" element={<Admin />} /> */}
       {/* <Route path="/profile" element={<UserProfile />} /> */}
-      {/* <Route path="/login" element={<Login />} /> */}
+      <Route path="/login" element={<Login />} />
       {/* <Route path="/register" element={<Register />} /> */}
       {/* <Route path="*" exact={true} element={<PageNotFound />} /> */}
     </Routes>

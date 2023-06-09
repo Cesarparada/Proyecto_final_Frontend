@@ -1,0 +1,26 @@
+.alto {
+  height: 75vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  .login-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+    width: 300px;
+    height: 65vh;
+  }
+  button {
+    background-color: #36455a;
+  }
+  h1 {
+    font-size: 3em;
+  }
+  .logo-login {
+    height: 90px;
+    width: 90px;
+  }
+}
