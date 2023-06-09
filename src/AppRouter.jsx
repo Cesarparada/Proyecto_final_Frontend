@@ -5,7 +5,7 @@ import {
 Home,
 Login,
 // Register,
-// UserProfile,
+UserProfile,
 // PageNotFound,
 } from "./containers";
 
@@ -14,7 +14,7 @@ export default function AppRouter() {
     <Routes>
       <Route path="/" element={<Home />} />
       {/* <Route path="/admin" element={<Admin />} /> */}
-      {/* <Route path="/profile" element={<UserProfile />} /> */}
+      <Route path="/profile" element={<UserProfile />} />
       <Route path="/login" element={<Login />} />
       {/* <Route path="/register" element={<Register />} /> */}
       {/* <Route path="*" exact={true} element={<PageNotFound />} /> */}

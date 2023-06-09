@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   // HOOKS
-  const navigate = useNavigate;
+  const navigate = useNavigate();
   const [formValues, setFormValues] = useState({});
   const [loginError, setLoginError] = useState(null);
   const authState = useSelector((state) => state.auth);
@@ -19,6 +19,7 @@ export default function Login() {
       isAdmin ? navigate("/admin") : navigate("/");
     }
   }, [authState.userToken]);
+
 
   // HANDLERS
   const handleSubmit = (e) => {
@@ -71,9 +72,9 @@ export default function Login() {
     <div className="contenedor-form">
       <div className="alto">
         <div className="login-form form">
-          <pre style={{ textAlign: "left", width: "250px", margin: "auto" }}>
+          {/* <pre style={{ textAlign: "left", width: "250px", margin: "auto" }}>
             {JSON.stringify(formValues, null, 2)}
-          </pre>
+          </pre> */}
 
           <h1>Bienvenido</h1>
 
