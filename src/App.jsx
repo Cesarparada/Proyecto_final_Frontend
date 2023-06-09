@@ -1,5 +1,6 @@
 import "./App.scss";
 import { BrowserRouter } from "react-router-dom";
+import AppRouter from './AppRouter'
 import Header from "./components/header/Header";
 
 
@@ -8,7 +9,7 @@ function App() {
     <>
       <BrowserRouter>
         <Header />
-        {/* <AppRouter/> */}
+        <AppRouter/>
       </BrowserRouter>
     </>
   );

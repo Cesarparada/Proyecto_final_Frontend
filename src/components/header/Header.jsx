@@ -1,45 +1,65 @@
-import React from 'react'
+import React from "react";
 import "./Header.scss";
-import Container from 'react-bootstrap/Container';
-import Nav from 'react-bootstrap/Nav';
-import Navbar from 'react-bootstrap/Navbar';
-import NavDropdown from 'react-bootstrap/NavDropdown';
-
-
+import { NavLink, useNavigate } from "react-router-dom";
+import {
+  MdPersonOutline,
+  MdOutlineLogout,
+  MdKeyboardArrowDown,
+  MdOutlineLogin,
+} from "react-icons/md";
 
 export default function Header() {
   return (
     <div>
-       
-    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
-        <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
-        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
-        <Navbar.Collapse id="responsive-navbar-nav">
-          <Nav className="me-auto">
-            <Nav.Link href="#features">Features</Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
-            <NavDropdown title="Dropdown" id="collasible-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.3">Something</NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Separated link
-              </NavDropdown.Item>
-            </NavDropdown>
-          </Nav>
-          <Nav>
-            <Nav.Link href="#deets">More deets</Nav.Link>
-            <Nav.Link eventKey={2} href="#memes">
-              Dank memes
-            </Nav.Link>
-          </Nav>
-        </Navbar.Collapse>
-      </Container>
-    </Navbar>
+      <div className="Header">
+        <nav className="navbar">
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink to="/">Home</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/courses">Courses</NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/about">About</NavLink>
+            </li>
+
+            <li className="nav-item">
+              <NavLink to="/admin">Admin</NavLink>
+            </li>
+          </ul>
+
+          <ul className="navbar-nav">
+            <li className="nav-item">
+              <NavLink to="/login">
+                <MdOutlineLogin />
+                Login
+              </NavLink>
+            </li>
+            <li className="nav-item">
+              <NavLink to="/register">Register</NavLink>
+            </li>
+
+            <li className="nav-item dropdown ">
+              <a>
+                <MdPersonOutline className="icon" />
+                {name} <MdKeyboardArrowDown />
+              </a>
+
+              <ul className="dropdown-menu">
+                <li className="dropdown-item">
+                  <NavLink to="/profile">Profile</NavLink>
+                </li>
+                <li className="dropdown-item">
+                  {/* <a onClick={handleLogout}>
+                    <MdOutlineLogout /> Logout
+                  </a> */}
+                </li>
+              </ul>
+            </li>
+          </ul>
+        </nav>
+      </div>
     </div>
-  )
-};
+  );
+}
