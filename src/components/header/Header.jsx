@@ -36,7 +36,7 @@ export default function Header() {
             {isLoggedIn && !isAdmin && (
               <>
                 <li className="nav-item">
-                  <NavLink to="/courses">Proyectos</NavLink>
+                  <NavLink to="/proyectos">Proyectos</NavLink>
                 </li>
                 <li className="nav-item">
                   <NavLink to="/courses">Tareas</NavLink>

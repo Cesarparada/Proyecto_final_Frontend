@@ -6,8 +6,10 @@ Home,
 Login,
 // Register,
 UserProfile,
+Proyectos
 // PageNotFound,
 } from "./containers";
+
 
 export default function AppRouter() {
   return (
@@ -16,6 +18,7 @@ export default function AppRouter() {
       <Route path="/admin" element={<Admin />} />
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/login" element={<Login />} />
+      <Route path="/proyectos" element={<Proyectos />} />
       {/* <Route path="/register" element={<Register />} /> */}
       {/* <Route path="*" exact={true} element={<PageNotFound />} /> */}
     </Routes>
