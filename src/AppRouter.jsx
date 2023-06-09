@@ -1,18 +1,18 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-// import {
+import {
 // Admin,
-// Home,
+Home,
 // Login,
 // Register,
 // UserProfile,
 // PageNotFound,
-// } from "./containers";
+} from "./containers";
 
 export default function AppRouter() {
   return (
     <Routes>
-      {/* <Route path="/" element={<Home />} /> */}
+      <Route path="/" element={<Home />} />
       {/* <Route path="/admin" element={<Admin />} /> */}
       {/* <Route path="/profile" element={<UserProfile />} /> */}
       {/* <Route path="/login" element={<Login />} /> */}
