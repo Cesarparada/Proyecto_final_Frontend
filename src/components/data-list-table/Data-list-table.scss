@@ -1,0 +1,29 @@
+.tabla-users{
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+table{
+
+    height: 300px;
+    width: 55vmax;
+   
+    text-align: center;
+    border-radius: 10px;
+    background: rgb(255, 255, 255);
+    background: linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 1) 35%,
+      rgba(135, 134, 124, 0.9108018207282913) 100%
+    );
+    -webkit-box-shadow: 35px 43px 20px -5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 35px 43px 20px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 35px 43px 20px -5px rgba(0, 0, 0, 0.5);
+thead{
+  font-size: 20px;
+}
+    
+}
+
+}
