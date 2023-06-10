@@ -55,16 +55,16 @@ proyectoService.updateProyecto = async (token, data, idProyecto) => {
       ).data;
     };
 
-//     //servicio eliminar cita
-//     proyectoService.deleteCita = async (token, idCita) => {
-//       const config = {
-//         headers: {
-//           Authorization: `Bearer ${token}`,
-//         },
-//       };
-//       return (
-//         await axios.delete(global.BASE_URL + `/citas/deletecita/${idCita}`, config)
-//         ).data;
-//       };
+    //servicio eliminar proyecto
+    proyectoService.deleteProyecto = async (token, idProyecto) => {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      return (
+        await axios.delete(global.BASE_URL + `/proyectos/delete-proyectos/${idProyecto}`, config)
+        ).data;
+      };
 
 export default proyectoService;
