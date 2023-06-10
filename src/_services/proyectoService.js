@@ -35,6 +35,36 @@ proyectoService.createProyectos = async (token, data) => {
   ).data;
 };
 
+//servicio modificar Proyecto
+proyectoService.updateProyecto = async (token, data, idProyecto) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const body = {
+    titulo: data.titulo,
+    descripcion: data.descripcion,
+  };
+  return (
+    await axios.put(
+      global.BASE_URL + `/proyectos/update-proyectos/${idProyecto}`,
+      body,
+      config
+      )
+      ).data;
+    };
 
+//     //servicio eliminar cita
+//     proyectoService.deleteCita = async (token, idCita) => {
+//       const config = {
+//         headers: {
+//           Authorization: `Bearer ${token}`,
+//         },
+//       };
+//       return (
+//         await axios.delete(global.BASE_URL + `/citas/deletecita/${idCita}`, config)
+//         ).data;
+//       };
 
 export default proyectoService;

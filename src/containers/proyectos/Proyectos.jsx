@@ -13,10 +13,12 @@ export default function Proyectos() {
   const authState = useSelector((state) => state.auth);
   const navigate = useNavigate();
   const isCreador = authState.userInfo.role == "user";
+  const [idProyecto, setIdProyecto] = useState();
   const isLoggedIn = authState.isLoggedIn;
   const [proyecto, setProyecto] = useState([]);
   const [formValues, setFormValues] = useState({});
   const [formCreateProyectos, setCreateProyectos] = useState(false);
+  const [formUpdateProyecto, setFormUpdateProyecto] = useState(false);
 
   useEffect(() => {
     getProyectos(authState.userToken);
@@ -25,6 +27,12 @@ export default function Proyectos() {
   const handleProyectos = (e) => {
     const { dataId } = e.currentTarget.dataset;
     console.log(dataId);
+  };
+
+  const handleChangeIdProyecto = (e) => {
+    const { value } = e.target;
+    setIdProyecto(value);
+    console.log(idProyecto);
   };
 
   //funcion que llama al servicio citas paciente
@@ -50,9 +58,16 @@ export default function Proyectos() {
       [name]: value, // key: value
     });
   };
+   //handlers que cambian el valor para pintar y ocultar formularios
   const handleFormCreateProyectos = () => {
-    // setFormUpdateCita(true);
+    setFormUpdateProyecto(true);
     setCreateProyectos(true);
+    // setFormDeleteCita(false);
+  };
+
+  const handleFormUpdateProyecto = () => {
+    setFormUpdateProyecto(true);
+    setCreateProyectos(false);
     // setFormDeleteCita(false);
   };
 
@@ -60,6 +75,9 @@ export default function Proyectos() {
 
   const handleSubmitCreateProyectos = () => {
     createProyectos(authState.userToken, formValues);
+  };
+  const handleSubmitUpdate = () => {
+    updateProyecto(authState.userToken, formValues, idProyecto);
   };
   //funcion que llama al servicio crear proyectos
   const createProyectos = async (token, body) => {
@@ -70,6 +88,16 @@ export default function Proyectos() {
       console.log(error);
     }
   };
+  
+  //funcion que llama al servicio modificar citas
+  const updateProyecto = async (token, data, idProyecto) => {
+    try {
+      const response = await proyectoService.updateProyecto(token, data, idProyecto);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div>
       Proyectos
@@ -123,13 +151,21 @@ export default function Proyectos() {
           </Accordion.Item>
           <Accordion.Item eventKey="0">
             
-            {/* <Accordion.Header onClick={handleFormUpdateCita}>
+            <Accordion.Header onClick={handleFormUpdateProyecto}>
               Modificar Proyecto
             </Accordion.Header>
             <Accordion.Body>
-              {formUpdateCita && (
+              {formUpdateProyecto && (
                 <Form onSubmit={handleSubmitUpdate}>
                   <Form.Group>
+                  <Form.Label>Identificador de proyecto</Form.Label>
+                  <Form.Control
+                              type="text"
+                              placeholder="Coloque identificador de Proyecto"
+                              name="idCita"
+                              onChange={handleChangeIdProyecto}
+                            />
+
                     <Form.Label>Titulo</Form.Label>
                     <Form.Control
                       className="input"
@@ -157,7 +193,7 @@ export default function Proyectos() {
                   </Button>
                 </Form>
               )}
-            </Accordion.Body> */}
+            </Accordion.Body>
           </Accordion.Item>
           <Accordion.Item eventKey="2">
             {/* <Accordion.Header onClick={handleFormDeleteCita}>
