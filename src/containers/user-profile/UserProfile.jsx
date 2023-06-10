@@ -1,4 +1,3 @@
-
 import React, { useEffect, useState } from "react";
 import "./UserProfile.scss";
 import userService from "../../_services/userService";
@@ -10,9 +9,10 @@ import { store } from "../../app/store";
 import validator from "validator";
 import Card from "react-bootstrap/Card";
 import ListGroup from "react-bootstrap/ListGroup";
+import { setUserInfo } from "../../features/authentication/authSlice";
 export default function UserProfile() {
   // HOOKS
-  const [user, setUser] = useState({});
+  const [perfil, setPerfil] = useState({});
   const [formValues, setFormValues] = useState({});
   const [modifyProfile, setModifyProfile] = useState(false);
   const [updateError, setUpdateError] = useState(null);
@@ -35,7 +35,7 @@ export default function UserProfile() {
     try {
       const response = await userService.getProfile(token);
 
-      setUser(response);
+      setPerfil(response);
     } catch (error) {
       console.log(error);
     }
@@ -77,7 +77,7 @@ export default function UserProfile() {
       }
       updateProfile(authState.userToken, formValues);
       if (formValues.nombre) {
-        store.dispatch(setUser({ name: formValues.nombre }));
+        store.dispatch(setUserInfo({ name: formValues.nombre }));
       }
     }
     setValidated(true);
@@ -93,31 +93,28 @@ export default function UserProfile() {
   const handleChangeProfile = () => {
     setModifyProfile(true);
   };
-  
+
   return (
     <>
       <div className="contenedor-card">
         <div className="card">
           {!modifyProfile && (
             <Card style={{ width: "15rem" }}>
-              <div>
-                <Card.Img className="card-img" src="/_imagenes/usuario.png" />
-              </div>
               <Card.Body>
                 <Card.Title>Perfil del Usuario</Card.Title>
               </Card.Body>
               <ListGroup>
                 <ListGroup.Item className="items">
-                  Nombre: {user.nombre}
+                  Nombre: {perfil.nombre}
                 </ListGroup.Item>
                 <ListGroup.Item className="items">
-                  Apellidos: {user.apellidos}
+                  Apellidos: {perfil.apellidos}
                 </ListGroup.Item>
                 <ListGroup.Item className="items">
-                  Fecha de Nacimiento: <br /> {user.fecha_de_nacimiento}
+                  Fecha de Nacimiento: <br /> {perfil.fecha_de_nacimiento}
                 </ListGroup.Item>
                 <ListGroup.Item className="items">
-                  Email: <br /> {user.email}
+                  Email: <br /> {perfil.email}
                 </ListGroup.Item>
               </ListGroup>
             </Card>
