@@ -37,7 +37,6 @@ export default function Proyectos() {
   const handleChangeIdProyecto = (e) => {
     const { value } = e.target;
     setIdProyecto(value);
-    console.log(idProyecto);
   };
 
   //funcion que llama al servicio citas paciente
@@ -230,7 +229,6 @@ export default function Proyectos() {
                   {formDeleteProyecto && (
                     <Form onSubmit={handleSubmitDelete}>
                       <Form.Group>
-                        <Form.Label></Form.Label>
                         <Form.Label>Identificador de Proyecto</Form.Label>
                         <Form.Control
                           type="number"
