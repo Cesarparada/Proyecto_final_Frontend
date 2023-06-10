@@ -4,7 +4,7 @@ import {
 Admin,
 Home,
 Login,
-// Register,
+Register,
 UserProfile,
 Proyectos
 // PageNotFound,
@@ -19,7 +19,7 @@ export default function AppRouter() {
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/proyectos" element={<Proyectos />} />
-      {/* <Route path="/register" element={<Register />} /> */}
+      <Route path="/register" element={<Register />} />
       {/* <Route path="*" exact={true} element={<PageNotFound />} /> */}
     </Routes>
   );

@@ -1,0 +1,22 @@
+.alto-register {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  .register-form {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 90vh;
+    width: 350px;
+  }
+  .logo-register {
+    height: 100px;
+    width: 100px;
+  }
+  .btn-register {
+    height: 80px;
+    margin-top: 10px;
+  }
+}
