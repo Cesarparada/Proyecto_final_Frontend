@@ -1,36 +1,33 @@
-import React from 'react'
-import Card from 'react-bootstrap/Card';
+import React from "react";
+import Card from "react-bootstrap/Card";
 
-export default function CardProyecto() {
+export default function CardProyecto({
+  data,
+  headers,
+  attributes,
+  onChange,
+  pagination = null,
+}) {
   return (
     <>
-      {[
-        'Primary',
-        'Secondary',
-        'Success',
-        'Danger',
-        'Warning',
-        'Info',
-        'Light',
-        'Dark',
-      ].map((variant) => (
-        <Card
-          bg={variant.toLowerCase()}
-          key={variant}
-          text={variant.toLowerCase() === 'light' ? 'dark' : 'white'}
-          style={{ width: '18rem' }}
-          className="mb-2"
-        >
-          <Card.Header>Header</Card.Header>
-          <Card.Body>
-            <Card.Title>{variant} Card Title </Card.Title>
-            <Card.Text>
-              Some quick example text to build on the card title and make up the
-              bulk of the card's content.
+      <Card border="warning" style={{ width: "18rem" }}>
+        <Card.Header colSpan={headers.length}>
+          {headers.map((Title, index) => (
+            <Card.Title key={index}>{Title}</Card.Title>
+          ))}
+        </Card.Header>
+        <Card.Body>
+          {data.map((d) => (
+            <Card.Text scope="row" data-data-id={d.id} onClick={onChange} key={d.id}>
+              {attributes.map((attr, index) => (
+                <Card.Text data-label={headers[index]} key={index}>
+                  {d[attr] ? d[attr] : "No definido"}
+                </Card.Text>
+              ))}
             </Card.Text>
-          </Card.Body>
-        </Card>
-      ))}
+          ))}
+        </Card.Body>
+      </Card>
     </>
-  )
+  );
 }
