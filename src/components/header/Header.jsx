@@ -39,7 +39,7 @@ export default function Header() {
                   <NavLink to="/proyectos">Proyectos</NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink to="/courses">Tareas</NavLink>
+                  <NavLink to="/tareas">Tareas</NavLink>
                 </li>
               </>
             )}

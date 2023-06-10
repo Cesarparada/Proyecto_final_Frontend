@@ -8,6 +8,7 @@ Register,
 UserProfile,
 Proyectos,
 PageNotFound,
+ListaTarea,
 } from "./containers";
 
 
@@ -19,6 +20,7 @@ export default function AppRouter() {
       <Route path="/profile" element={<UserProfile />} />
       <Route path="/login" element={<Login />} />
       <Route path="/proyectos" element={<Proyectos />} />
+      <Route path="/tareas" element={<ListaTarea/>}/>
       <Route path="/register" element={<Register />} />
       <Route path="*" exact={true} element={<PageNotFound />} />
     </Routes>
