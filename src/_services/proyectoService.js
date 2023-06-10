@@ -1,10 +1,10 @@
 import axios from "axios";
 import { global } from "../_global.js/global";
 
-//servicio para ver los proyectos
 
 const proyectoService = {};
 
+//servicio para ver los proyectos
 proyectoService.getProyectos = async (token) => {
   const config = {
     headers: {
