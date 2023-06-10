@@ -15,6 +15,26 @@ proyectoService.getProyectos = async (token) => {
     .data;
 };
 
+//servicio crear proyectos
+proyectoService.createProyectos = async (token, data) => {
+  const config = {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  };
+  const body = {
+    titulo: data.titulo,
+    descripcion: data.descripcion,
+  };
+  return (
+    await axios.post(
+      global.BASE_URL + `/proyectos/create-proyecto`,
+      body,
+      config
+    )
+  ).data;
+};
+
+
 
 export default proyectoService;
-
