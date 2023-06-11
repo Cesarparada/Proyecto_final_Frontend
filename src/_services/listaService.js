@@ -48,4 +48,18 @@ const body = {
 };
 return (await axios.put(global.BASE_URL + `/tareas/update-tareas/${idLista}`, body, config)).data
 };
+
+ //servicio eliminar Lista de Tareas
+ listaService.deleteListaTarea = async (token, idLista) => {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+    return (
+      await axios.delete(global.BASE_URL + `/tareas/delete-tareas/${idLista}`, config)
+      ).data;
+    };
+
+
 export default listaService;
