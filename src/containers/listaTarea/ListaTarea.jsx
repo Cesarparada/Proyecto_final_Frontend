@@ -96,7 +96,7 @@ export default function ListaTarea() {
 
   const handleSubmitDeleteTareas = (e) => {
     // e.preventDefault();
-    deleteProyecto(authState.userToken, idProyecto);
+    deleteListaTarea(authState.userToken, idLista);
   };
 
   // funcion que para llama al servicio "listaService" para crear, modificar y eliminar tareas
@@ -121,6 +121,17 @@ export default function ListaTarea() {
       );
       console.log(idLista);
     } catch (error) {}
+  };
+
+  
+  const deleteListaTarea = async (token, idLista) => {
+    
+    try {
+      const response = await listaService.deleteListaTarea(token, idLista);
+      // navigate("/proyectos");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   return (
@@ -254,8 +265,8 @@ export default function ListaTarea() {
                     <Form.Label>Identificador de Proyecto</Form.Label>
                     <Form.Control
                       type="number"
-                      name="idProyecto"
-                      onChange={handleChangeIdProyecto}
+                      name="idLista"
+                      onChange={handleChangeIdLista}
                     />
                   </Form.Group>
                   <Button
