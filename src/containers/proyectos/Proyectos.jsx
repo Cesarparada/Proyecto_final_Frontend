@@ -27,7 +27,7 @@ export default function Proyectos() {
     } else {
       navigate("");
     }
-  }, [proyecto]);
+  }, []);
 
   const handleProyectos = (e) => {
     const { dataId } = e.currentTarget.dataset;
@@ -91,10 +91,10 @@ export default function Proyectos() {
   };
 
   const handleSubmitDelete = (e) => {
-    // e.preventDefault();
+    e.preventDefault();
     deleteProyecto(authState.userToken, idProyecto);
   };
-
+  
   //funciones que llamar al servicio "proyectoService"
   const createProyectos = async (token, body) => {
     try {
@@ -103,24 +103,25 @@ export default function Proyectos() {
       console.log(error);
     }
   };
-
+  
   const updateProyecto = async (token, data, idProyecto) => {
     try {
       const response = await proyectoService.updateProyecto(
         token,
         data,
         idProyecto
-      );
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  const deleteProyecto = async (token, idProyecto) => {
-    try {
-      const response = await proyectoService.deleteProyecto(token, idProyecto);
-    } catch (error) {
-      console.log(error);
+        );
+      } catch (error) {
+        console.log(error);
+      }
+    };
+    
+    const deleteProyecto = async (token, idProyecto) => {
+      try {
+        const response = await proyectoService.deleteProyecto(token, idProyecto);
+        // navigate("/proyectos");
+      } catch (error) {
+        console.log(error);
     }
   };
   return (
