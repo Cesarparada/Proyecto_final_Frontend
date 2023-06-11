@@ -7,8 +7,7 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import proyectoService from "../../_services/proyectoService";
-import { CardProyecto, DataListTable } from "../../components";
-
+import { CardProyecto } from "../../components";
 
 export default function Proyectos() {
   const authState = useSelector((state) => state.auth);
@@ -21,7 +20,6 @@ export default function Proyectos() {
   const [formCreateProyectos, setCreateProyectos] = useState(false);
   const [formUpdateProyecto, setFormUpdateProyecto] = useState(false);
   const [formDeleteProyecto, setFormDeleteProyecto] = useState(false);
-
 
   useEffect(() => {
     if (isLoggedIn && isCreador) {
@@ -96,7 +94,7 @@ export default function Proyectos() {
     // e.preventDefault();
     deleteProyecto(authState.userToken, idProyecto);
   };
-  
+
   //funciones que llamar al servicio "proyectoService"
   const createProyectos = async (token, body) => {
     try {
@@ -105,25 +103,25 @@ export default function Proyectos() {
       console.log(error);
     }
   };
-  
+
   const updateProyecto = async (token, data, idProyecto) => {
     try {
       const response = await proyectoService.updateProyecto(
         token,
         data,
         idProyecto
-        );
-      } catch (error) {
-        console.log(error);
-      }
-    };
-    
-    const deleteProyecto = async (token, idProyecto) => {
-      try {
-        const response = await proyectoService.deleteProyecto(token, idProyecto);
-        // navigate("/proyectos");
-      } catch (error) {
-        console.log(error);
+      );
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  const deleteProyecto = async (token, idProyecto) => {
+    try {
+      const response = await proyectoService.deleteProyecto(token, idProyecto);
+      // navigate("/proyectos");
+    } catch (error) {
+      console.log(error);
     }
   };
   return (
@@ -131,22 +129,14 @@ export default function Proyectos() {
       Proyectos
       {isCreador && (
         <>
-          {/* <div>
-            <DataListTable
-              data={proyecto}
-              title="Tus proyectos"
-              headers={["Id Proyecto", "Titulo", "Descripción"]}
-              attributes={["id_proyecto", "title", "description"]}
-              onChange={handleProyectos}
-            />
-          </div> */}
           <div>
             <CardProyecto
-             data={proyecto}
-             headers={["title"]}
-             numero={["id_proyecto"]}
-             attributes={["description"]}
-             onChange={handleProyectos}/>
+              data={proyecto}
+              headers={["title"]}
+              numero={["id_proyecto"]}
+              attributes={["description"]}
+              onChange={handleProyectos}
+            />
           </div>
           <div className="acordion">
             <Accordion defaultActiveKey="0">

@@ -47,7 +47,6 @@ export default function CardProyecto({
               ))}
               {attributes.map((body, index) => (
                 <Toast.Body data-label={[index]} key={index}>
-                  {" "}
                   {d[body] ? d[body] : "no definid"}
                 </Toast.Body>
               ))}
