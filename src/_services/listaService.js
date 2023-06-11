@@ -13,7 +13,7 @@ listaService.getListaTarea = async (token) => {
   return (await axios.get(global.BASE_URL + `/tareas/tarea`, config)).data;
 };
 
-//servicio para crear lista de tareas
+//servicio para crear lista de  tareas
 listaService.createListaTarea = async (token, data, idProyecto) =>{
     const config = {
         headers: {
