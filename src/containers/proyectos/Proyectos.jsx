@@ -7,7 +7,8 @@ import { useSelector } from "react-redux";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import proyectoService from "../../_services/proyectoService";
-import { DataListTable } from "../../components";
+import { CardProyecto, DataListTable } from "../../components";
+
 
 export default function Proyectos() {
   const authState = useSelector((state) => state.auth);
@@ -20,6 +21,7 @@ export default function Proyectos() {
   const [formCreateProyectos, setCreateProyectos] = useState(false);
   const [formUpdateProyecto, setFormUpdateProyecto] = useState(false);
   const [formDeleteProyecto, setFormDeleteProyecto] = useState(false);
+
 
   useEffect(() => {
     if (isLoggedIn && isCreador) {
@@ -91,7 +93,7 @@ export default function Proyectos() {
   };
 
   const handleSubmitDelete = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     deleteProyecto(authState.userToken, idProyecto);
   };
   
@@ -129,7 +131,7 @@ export default function Proyectos() {
       Proyectos
       {isCreador && (
         <>
-          <div>
+          {/* <div>
             <DataListTable
               data={proyecto}
               title="Tus proyectos"
@@ -137,6 +139,14 @@ export default function Proyectos() {
               attributes={["id_proyecto", "title", "description"]}
               onChange={handleProyectos}
             />
+          </div> */}
+          <div>
+            <CardProyecto
+             data={proyecto}
+             headers={["title"]}
+             numero={["id_proyecto"]}
+             attributes={["description"]}
+             onChange={handleProyectos}/>
           </div>
           <div className="acordion">
             <Accordion defaultActiveKey="0">
