@@ -39,7 +39,7 @@ export default function Proyectos() {
     setIdProyecto(value);
   };
 
-  //funcion que llama al servicio citas paciente
+  //funcion que llama al servicio para ver proyectos
   const getProyectos = async (token) => {
     try {
       const response = await proyectoService.getProyectos(token);
@@ -95,7 +95,8 @@ export default function Proyectos() {
     deleteProyecto(authState.userToken, idProyecto);
   };
 
-  //funciones que llamar al servicio "proyectoService"
+  //funciones que llamar al servicio "proyectoService" para crear, modificar y eliminar proyectos
+  
   const createProyectos = async (token, body) => {
     try {
       const response = await proyectoService.createProyectos(token, body);

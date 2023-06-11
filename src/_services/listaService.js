@@ -23,9 +23,10 @@ listaService.createListaTarea = async (token, data, idProyecto) =>{
         },
     };
     const body = {
-        id_contacto: data.contacto,
+        
         titulo: data.titulo,
         descripcion: data.descripcion,
+        tarea: data.tarea,
 
     };
     return (await axios.post(global.BASE_URL + `/tareas/crate-tarea/${idProyecto}`, body, config)).data
