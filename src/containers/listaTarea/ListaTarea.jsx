@@ -26,8 +26,6 @@ export default function ListaTarea() {
   useEffect(() => {
     if (isLoggedIn && isCreador) {
       getListaTarea(authState.userToken);
-    } else {
-      navigate("");
     }
   }, []);
 
@@ -87,16 +85,30 @@ export default function ListaTarea() {
 
   //Handlers que llaman a las funciones para ejecutar la peticion
 
-  const handleSubmitCreateTareas = () => {
-    createListaTarea(authState.userToken, formValues, idProyecto);
+  const handleSubmitCreateTareas = async (e) => {
+    e.preventDefault();
+    await createListaTarea(authState.userToken, formValues, idProyecto);
+    getListaTarea(authState.userToken);
+    setCreateTareas(false);
+    setFormUpdateTareas(false);
+    setFormDeleteTareas(false);
   };
-  const handleSubmitUpdateTareas = () => {
-    updateListaTarea(authState.userToken, formValues, idLista);
+  const handleSubmitUpdateTareas = async (e) => {
+    e.preventDefault();
+    await updateListaTarea(authState.userToken, formValues, idLista);
+    getListaTarea(authState.userToken);
+    setCreateTareas(false);
+    setFormUpdateTareas(false);
+    setFormDeleteTareas(false);
   };
 
-  const handleSubmitDeleteTareas = (e) => {
-    // e.preventDefault();
-    deleteListaTarea(authState.userToken, idLista);
+  const handleSubmitDeleteTareas = async (e) => {
+    e.preventDefault();
+    await deleteListaTarea(authState.userToken, idLista);
+    getListaTarea(authState.userToken);
+    setCreateTareas(false);
+    setFormUpdateTareas(false);
+    setFormDeleteTareas(false);
   };
 
   // funcion que para llama al servicio "listaService" para crear, modificar y eliminar tareas
@@ -123,12 +135,9 @@ export default function ListaTarea() {
     } catch (error) {}
   };
 
-  
   const deleteListaTarea = async (token, idLista) => {
-    
     try {
       const response = await listaService.deleteListaTarea(token, idLista);
-      // navigate("/proyectos");
     } catch (error) {
       console.log(error);
     }
@@ -158,10 +167,19 @@ export default function ListaTarea() {
                   <Form.Group>
                     <Form.Label>Identificador del proyecto</Form.Label>
                     <Form.Control
-                      type="text"
+                      type="number"
                       placeholder="Proyecto al que le añades tarea"
                       name="idProyecto"
                       onChange={handleChangeIdProyecto}
+                    />
+
+                    <Form.Label>Identificador de Contacto </Form.Label>
+                    <Form.Control
+                      type="number"
+                      placeholder="contacto al que le asignas la tarea"
+                      name="id_contacto"
+                      value={formValues.id_contacto}
+                      onChange={handleChange}
                     />
 
                     <Form.Label>Titulo</Form.Label>

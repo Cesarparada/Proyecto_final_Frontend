@@ -4,7 +4,6 @@ import { global } from "../_global.js/global";
 const listaService = {};
 
 //servicio para ver la lista de tareas
-
 listaService.getListaTarea = async (token) => {
   const config = {
     headers: {
@@ -15,7 +14,6 @@ listaService.getListaTarea = async (token) => {
 };
 
 //servicio para crear lista de tareas
-
 listaService.createListaTarea = async (token, data, idProyecto) =>{
     const config = {
         headers: {
@@ -23,11 +21,10 @@ listaService.createListaTarea = async (token, data, idProyecto) =>{
         },
     };
     const body = {
-        
+        id_contacto: data.id_contacto,
         titulo: data.titulo,
         descripcion: data.descripcion,
         tarea: data.tarea,
-
     };
     return (await axios.post(global.BASE_URL + `/tareas/crate-tarea/${idProyecto}`, body, config)).data
 };
@@ -39,12 +36,10 @@ listaService.updateListaTarea = async (token, data, idLista) =>{
           Authorization: `Bearer ${token}`,
         },   
 };
-const body = {
-        
+const body = {       
     titulo: data.titulo,
     descripcion: data.descripcion,
     tarea: data.tarea,
-
 };
 return (await axios.put(global.BASE_URL + `/tareas/update-tareas/${idLista}`, body, config)).data
 };
@@ -60,6 +55,5 @@ return (await axios.put(global.BASE_URL + `/tareas/update-tareas/${idLista}`, bo
       await axios.delete(global.BASE_URL + `/tareas/delete-tareas/${idLista}`, config)
       ).data;
     };
-
 
 export default listaService;

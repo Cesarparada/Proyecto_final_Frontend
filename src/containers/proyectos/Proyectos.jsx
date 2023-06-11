@@ -24,8 +24,6 @@ export default function Proyectos() {
   useEffect(() => {
     if (isLoggedIn && isCreador) {
       getProyectos(authState.userToken);
-    } else {
-      navigate("");
     }
   }, []);
 
@@ -83,20 +81,34 @@ export default function Proyectos() {
 
   //Handlers que llaman a las funciones para ejecutar la peticion
 
-  const handleSubmitCreateProyectos = () => {
-    createProyectos(authState.userToken, formValues);
+  const handleSubmitCreateProyectos = async (e) => {
+    e.preventDefault();
+    await createProyectos(authState.userToken, formValues);
+    getProyectos(authState.userToken);
+    setFormUpdateProyecto(false);
+    setCreateProyectos(false);
+    setFormDeleteProyecto(false);
   };
-  const handleSubmitUpdate = () => {
-    updateProyecto(authState.userToken, formValues, idProyecto);
+  const handleSubmitUpdate = async (e) => {
+    e.preventDefault();
+    await updateProyecto(authState.userToken, formValues, idProyecto);
+    getProyectos(authState.userToken);
+    setFormUpdateProyecto(false);
+    setCreateProyectos(false);
+    setFormDeleteProyecto(false);
   };
 
-  const handleSubmitDelete = (e) => {
-    // e.preventDefault();
-    deleteProyecto(authState.userToken, idProyecto);
+  const handleSubmitDelete = async (e) => {
+    e.preventDefault();
+    await deleteProyecto(authState.userToken, idProyecto);
+    getProyectos(authState.userToken);
+    setFormUpdateProyecto(false);
+    setCreateProyectos(false);
+    setFormDeleteProyecto(false);
   };
 
   //funciones que llamar al servicio "proyectoService" para crear, modificar y eliminar proyectos
-  
+
   const createProyectos = async (token, body) => {
     try {
       const response = await proyectoService.createProyectos(token, body);
@@ -120,7 +132,6 @@ export default function Proyectos() {
   const deleteProyecto = async (token, idProyecto) => {
     try {
       const response = await proyectoService.deleteProyecto(token, idProyecto);
-      // navigate("/proyectos");
     } catch (error) {
       console.log(error);
     }
@@ -158,7 +169,7 @@ export default function Proyectos() {
                           onChange={handleChange}
                         />
                         <br />
-                        <Form.Label>Descipcion</Form.Label>
+                        <Form.Label>Descripcion</Form.Label>
                         <Form.Control
                           className="input"
                           type="text"
@@ -188,8 +199,8 @@ export default function Proyectos() {
                       <Form.Group>
                         <Form.Label>Identificador de proyecto</Form.Label>
                         <Form.Control
-                          type="text"
-                          placeholder="Coloque identificador de Proyecto"
+                          type="number"
+                          placeholder="Coloque identificador del Proyecto"
                           name="idProyecto"
                           onChange={handleChangeIdProyecto}
                         />
