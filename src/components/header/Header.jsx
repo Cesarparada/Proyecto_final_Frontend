@@ -1,9 +1,12 @@
 import React from "react";
 import "./Header.scss";
-import { NavLink, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { updateAuthStoreStateLogOut } from "../../features/authentication/updateAuthState";
-
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import Container from "react-bootstrap/Container";
 import {
   MdPersonOutline,
   MdOutlineLogout,
@@ -26,71 +29,52 @@ export default function Header() {
   };
 
   return (
-    <div>
-      <div className="Header">
-        <nav className="navbar">
-          <ul className="navbar-nav">
-            <li className="nav-item">
-              <NavLink to="/">Home</NavLink>
-            </li>
+    <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
+      <Container>
+        <Navbar.Brand href="/">Home</Navbar.Brand>
+        <Navbar.Toggle aria-controls="responsive-navbar-nav" />
+        <Navbar.Collapse id="responsive-navbar-nav">
+          <Nav className="me-auto">
             {isLoggedIn && !isAdmin && (
               <>
-                <li className="nav-item">
-                  <NavLink to="/proyectos">Proyectos</NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/tareas">Tareas</NavLink>
-                </li>
+                <Nav.Link href="/proyectos">Proyectos</Nav.Link>
+                <Nav.Link href="/tareas">Tareas</Nav.Link>
               </>
             )}
-            <li className="nav-item">
-              <NavLink to="/about">About</NavLink>
-            </li>
             {isAdmin && (
-              <li className="nav-item">
-                <NavLink to="/admin">Admin</NavLink>
-              </li>
+              <>
+                <Nav.Link href="/admin">Admin</Nav.Link>
+              </>
             )}
-          </ul>
-
-          <ul className="navbar-nav">
+          </Nav>
+          <Nav>
             {!isLoggedIn && (
               <>
-                <li className="nav-item">
-                  <NavLink to="/login">
-                    <MdOutlineLogin />
-                    Login
-                  </NavLink>
-                </li>
-                <li className="nav-item">
-                  <NavLink to="/register">Register</NavLink>
-                </li>
+                <Nav.Link href="/login">
+                  <MdOutlineLogin />
+                  Login
+                </Nav.Link>
+                <Nav.Link href="/register">Register</Nav.Link>
               </>
             )}
+
             {isLoggedIn && (
               <>
-                <li className="nav-item dropdown ">
-                  <a>
+                <NavDropdown title={name} id="collasible-nav-dropdown">
+                  <NavDropdown.Item href="/profile">
                     <MdPersonOutline className="icon" />
-                    {name} <MdKeyboardArrowDown />
-                  </a>
-
-                  <ul className="dropdown-menu">
-                    <li className="dropdown-item">
-                      <NavLink to="/profile">Profile</NavLink>
-                    </li>
-                    <li className="dropdown-item">
-                      <a onClick={handleLogout}>
-                        <MdOutlineLogout /> Logout
-                      </a>
-                    </li>
-                  </ul>
-                </li>
+                    Profile
+                  </NavDropdown.Item>
+                  <NavDropdown.Item onClick={handleLogout}>
+                    <MdOutlineLogout />
+                    Logout
+                  </NavDropdown.Item>
+                </NavDropdown>
               </>
             )}
-          </ul>
-        </nav>
-      </div>
-    </div>
+          </Nav>
+        </Navbar.Collapse>
+      </Container>
+    </Navbar> 
   );
 }
