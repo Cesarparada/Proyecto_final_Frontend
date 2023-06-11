@@ -17,6 +17,7 @@ export default function ListaTarea() {
   const isLoggedIn = authState.isLoggedIn;
   const [listas, setListas] = useState([]);
   const [idProyecto, setIdProyecto] = useState();
+  const [idLista, setIdLista] = useState();
   const [formValues, setFormValues] = useState({});
   const [formCreateTareas, setCreateTareas] = useState(false);
   const [formUpdateTareas, setFormUpdateTareas] = useState(false);
@@ -37,6 +38,11 @@ export default function ListaTarea() {
   const handleChangeIdProyecto = (e) => {
     const { value } = e.target;
     setIdProyecto(value);
+  };
+
+  const handleChangeIdLista = (e) => {
+    const { value } = e.target;
+    setIdLista(value);
   };
 
   //handler para escuchar cambio en inputs
@@ -85,7 +91,7 @@ export default function ListaTarea() {
     createListaTarea(authState.userToken, formValues, idProyecto);
   };
   const handleSubmitUpdateTareas = () => {
-    updateProyecto(authState.userToken, formValues, idProyecto);
+    updateListaTarea(authState.userToken, formValues, idLista);
   };
 
   const handleSubmitDeleteTareas = (e) => {
@@ -106,6 +112,16 @@ export default function ListaTarea() {
       console.log(error);
     }
   };
+  const updateListaTarea = async (token, body, idLista) => {
+    try {
+      const response = await listaService.updateListaTarea(
+        token,
+        body,
+        idLista
+      );
+      console.log(idLista);
+    } catch (error) {}
+  };
 
   return (
     <>
@@ -114,7 +130,7 @@ export default function ListaTarea() {
         <DataListTable
           data={listas}
           title="Tu Lista de Tareas"
-          headers={["Id Lista", "Titulo", "Descripcion", "Tarea"]}
+          headers={["Nº", "Titulo", "Descripcion", "Tarea"]}
           attributes={["id", "titulo", "descripcion", "tarea"]}
           onChange={handleListas}
         />
@@ -182,12 +198,12 @@ export default function ListaTarea() {
               {formUpdateTareas && (
                 <Form onSubmit={handleSubmitUpdateTareas}>
                   <Form.Group>
-                    <Form.Label>Identificador de proyecto</Form.Label>
+                    <Form.Label>Identificador De Lista</Form.Label>
                     <Form.Control
                       type="text"
-                      placeholder="Coloque identificador de Proyecto"
-                      name="idProyecto"
-                      onChange={handleChangeIdProyecto}
+                      placeholder="Lista a Modificar"
+                      name="idLista"
+                      onChange={handleChangeIdLista}
                     />
 
                     <Form.Label>Titulo</Form.Label>
@@ -205,6 +221,14 @@ export default function ListaTarea() {
                       type="text"
                       name="descripcion"
                       value={formValues.descripcion}
+                      onChange={handleChange}
+                    />
+                    <Form.Label>Tarea</Form.Label>
+                    <Form.Control
+                      className="input"
+                      type="text"
+                      name="tarea"
+                      value={formValues.tarea}
                       onChange={handleChange}
                     />
                   </Form.Group>
