@@ -1,123 +1,69 @@
-<p align="center">
-  <a href="" rel="noopener">
- <img src="https://i.imgur.com/AZ2iWek.png" alt="Project logo"></a>
-</p>
-<h3 align="center">proyecto-final-frontend</h3>
 
-<div align="center">
+<h3 align="center">Proyecto-Final-Frontend</h3>
 
-[![Hackathon](https://img.shields.io/badge/hackathon-name-orange.svg)](http://hackathon.url.com)
-[![Status](https://img.shields.io/badge/status-active-success.svg)]()
-[![GitHub Issues](https://img.shields.io/github/issues/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/issues)
-[![GitHub Pull Requests](https://img.shields.io/github/issues-pr/kylelobo/The-Documentation-Compendium.svg)](https://github.com/kylelobo/The-Documentation-Compendium/pulls)
-[![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE.md)
 
-</div>
 
 ---
 
-<p align="center"> Few lines describing your project.
-    <br> 
-</p>
 
-## 📝 Table of Contents
 
-- [Problem Statement](#problem_statement)
-- [Idea / Solution](#idea)
-- [Dependencies / Limitations](#limitations)
-- [Future Scope](#future_scope)
-- [Setting up a local environment](#getting_started)
-- [Usage](#usage)
-- [Technology Stack](#tech_stack)
-- [Contributing](../CONTRIBUTING.md)
-- [Authors](#authors)
-- [Acknowledgments](#acknowledgments)
 
-## 🧐 Problem Statement <a name = "problem_statement"></a>
+## 🧐 About <a name = "about"></a>
 
-It is useful to design and follow a specific format when writing a problem statement. While there are several options
-for doing this, the following is a simple and straightforward template often used in Business Analysis to maintain
-focus on defining the problem.
+Este es el diseño Frontend de una aplicación para crear y administrar listas de tareas, con vista de login, registro, proyectos y litas de tareas, se pueden hacer modificaciondes y relacionar listas con proyectos y usuarios.
 
-- IDEAL: This section is used to describe the desired or “to be” state of the process or product. At large, this section
-  should illustrate what the expected environment would look like once the solution is implemented.
-- REALITY: This section is used to describe the current or “as is” state of the process or product.
-- CONSEQUENCES: This section is used to describe the impacts on the business if the problem is not fixed or improved upon.
-  This includes costs associated with loss of money, time, productivity, competitive advantage, and so forth.
 
-Following this format will result in a workable document that can be used to understand the problem and elicit
-requirements that will lead to a winning solution.
 
-## 💡 Idea / Solution <a name = "idea"></a>
+Backend: (https://github.com/Cesarparada/Proyecto_Final_Backend.git)
 
-This section is used to describe potential solutions.
+### PrevieW
 
-Once the ideal, reality, and consequences sections have been
-completed, and understood, it becomes easier to provide a solution for solving the problem.
+Vista de la navegación de la pagina.
 
-## ⛓️ Dependencies / Limitations <a name = "limitations"></a>
+- <img src="_imagenes/mobile.png" alt="video-demo">
+---
+- <img src="_imagenes/mobile%20(1).png" alt="video-demo">
+---
+- <img src="_imagenes/mobile%20(2).png" alt="img-demo">
 
-- What are the dependencies of your project?
-- Describe each limitation in detailed but concise terms
-- Explain why each limitation exists
-- Provide the reasons why each limitation could not be overcome using the method(s) chosen to acquire.
-- Assess the impact of each limitation in relation to the overall findings and conclusions of your project, and if
-  appropriate, describe how these limitations could point to the need for further research.
 
-## 🚀 Future Scope <a name = "future_scope"></a>
+### Instalación
 
-Write about what you could not develop during the course of the Hackathon; and about what your project can achieve
-in the future.
+- Clonamos este repositorio.
+- Instalamos las dependencias: npm install
+- Iniciamos el servidor: npm run dev
 
-## 🏁 Getting Started <a name = "getting_started"></a>
+## 🎈 Como utilizarlo <a name="usage"></a>
 
-These instructions will get you a copy of the project up and running on your local machine for development
-and testing purposes. See [deployment](#deployment) for notes on how to deploy the project on a live system.
+- Nos registramos como usuarios.
+- Nos logeamos como usuarios.
+- Creamos una cita com usuarios y se nos permite, modificar y eliminar.
 
-### Prerequisites
+## ⛏️ Built Using <a name = "built_using"></a>
 
-What things you need to install the software and how to install them.
-
-```
-Give examples
-```
-
-### Installing
-
-A step by step series of examples that tell you how to get a development env running.
-
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
-
-```
-until finished
-```
-
-## 🎈 Usage <a name="usage"></a>
-
-Add notes about how to use the system.
-
-## ⛏️ Built With <a name = "tech_stack"></a>
-
-- [MongoDB](https://www.mongodb.com/) - Database
-- [Express](https://expressjs.com/) - Server Framework
-- [VueJs](https://vuejs.org/) - Web Framework
-- [NodeJs](https://nodejs.org/en/) - Server Environment
+- React.
+- Bootstrap.
+- HTML.
+- CSS - sass.
 
 ## ✍️ Authors <a name = "authors"></a>
 
-- [@kylelobo](https://github.com/kylelobo) - Idea & Initial work
+- [@Cesarparada](https://github.com/Cesarparada) 
 
-See also the list of [contributors](https://github.com/kylelobo/The-Documentation-Compendium/contributors)
-who participated in this project.
 
-## 🎉 Acknowledgments <a name = "acknowledgments"></a>
+## Agradecimientos:
 
-- Hat tip to anyone whose code was used
-- Inspiration
-- References
+Agradezco al profesor:
+
+- **_Prof. Fidel Guilart_**
+
+## Contacto
+
+**_César Parada_**  
+<a href="https://github.com/Cesarparada" target="_blank"><img src="https://img.shields.io/badge/github-24292F?style=for-the-badge&logo=github&logoColor=orange" target="_blank"></a>
+
+<a href="mailto:cesard.0925@gmail.com"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white"></a>
+
+<a href="https://www.linkedin.com/in/linkedinUser/" target="_blank"><img src="https://img.shields.io/badge/-LinkedIn-%230077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+
+</p>
