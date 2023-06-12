@@ -145,8 +145,9 @@ export default function ListaTarea() {
 
   return (
     <>
-      <div>ListaTarea</div>
+      <div className="titulos">Lista de Tarea</div>
       <div>
+       
         <DataListTable
           data={listas}
           title="Tu Lista de Tareas"
@@ -155,9 +156,9 @@ export default function ListaTarea() {
           onChange={handleListas}
         />
       </div>
-      <div className="acordion">
-        <Accordion defaultActiveKey="0">
-          <Accordion.Item eventKey="0">
+      <div className="acordeon">
+        <Accordion className="acordeon2" >
+          <Accordion.Item >
             <Accordion.Header onClick={handleFormCreateTareas}>
               Crear Tarea
             </Accordion.Header>
@@ -219,7 +220,7 @@ export default function ListaTarea() {
               )}
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="0">
+          <Accordion.Item >
             <Accordion.Header onClick={handleFormUpdateTareas}>
               Modificar Lista de Tarea
             </Accordion.Header>
@@ -272,7 +273,7 @@ export default function ListaTarea() {
               )}
             </Accordion.Body>
           </Accordion.Item>
-          <Accordion.Item eventKey="2">
+          <Accordion.Item >
             <Accordion.Header onClick={handleFormDeleteTareas}>
               Eliminar Proyecto
             </Accordion.Header>

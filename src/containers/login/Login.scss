@@ -5,6 +5,17 @@
   align-items: center;
   flex-direction: column;
   .login-form {
+    border-radius: 5px;
+    text-align: center;
+    background: linear-gradient(
+      130deg,
+      rgba(255, 255, 255, 0.406) 35%,
+      rgba(135, 134, 124, 0.9108018207282913) 100%
+    );
+    -webkit-box-shadow: 35px 43px 20px -5px rgba(0, 0, 0, 0.5);
+    -moz-box-shadow: 35px 43px 20px -5px rgba(0, 0, 0, 0.5);
+    box-shadow: 35px 43px 20px -5px rgba(0, 0, 0, 0.5);
+    color: rgb(0, 0, 0);
     display: flex;
     justify-content: center;
     align-items: center;
