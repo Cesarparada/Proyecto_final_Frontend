@@ -35,9 +35,9 @@ Vista de la navegación de la pagina.
 
 ## 🎈 Como utilizarlo <a name="usage"></a>
 
-- Nos registramos como usuarios.
-- Nos logeamos como usuarios.
-- Creamos una cita com usuarios y se nos permite, modificar y eliminar.
+- Nos registramos.
+- Nos logeamos.
+- Creamos proyectos y le añadimos tareas se nos permite, modificar y eliminar.
 
 ## ⛏️ Built Using <a name = "built_using"></a>
 
