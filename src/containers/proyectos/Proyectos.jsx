@@ -137,11 +137,11 @@ export default function Proyectos() {
     }
   };
   return (
-    <>
-      Proyectos
+    <div className="contenedor-proyecto">
+      <div className="titulos">Proyectos</div>
       {isCreador && (
         <>
-          <div>
+          <div className="card-proyecto">
             <CardProyecto
               data={proyecto}
               headers={["title"]}
@@ -150,9 +150,9 @@ export default function Proyectos() {
               onChange={handleProyectos}
             />
           </div>
-          <div className="acordion">
-            <Accordion defaultActiveKey="0">
-              <Accordion.Item eventKey="0">
+          <div className="acordeon">
+            <Accordion className="acordeon1">
+              <Accordion.Item >
                 <Accordion.Header onClick={handleFormCreateProyectos}>
                   Crear Proyecto
                 </Accordion.Header>
@@ -178,6 +178,7 @@ export default function Proyectos() {
                           onChange={handleChange}
                         />
                       </Form.Group>
+                      <br />
                       <Button
                         variant="primary"
                         type="submit"
@@ -189,7 +190,7 @@ export default function Proyectos() {
                   )}
                 </Accordion.Body>
               </Accordion.Item>
-              <Accordion.Item eventKey="0">
+              <Accordion.Item >
                 <Accordion.Header onClick={handleFormUpdateProyecto}>
                   Modificar Proyecto
                 </Accordion.Header>
@@ -223,6 +224,7 @@ export default function Proyectos() {
                           onChange={handleChange}
                         />
                       </Form.Group>
+                      <br />
                       <Button
                         variant="primary"
                         type="submit"
@@ -234,7 +236,7 @@ export default function Proyectos() {
                   )}
                 </Accordion.Body>
               </Accordion.Item>
-              <Accordion.Item eventKey="2">
+              <Accordion.Item >
                 <Accordion.Header onClick={handleFormDeleteProyecto}>
                   Eliminar Proyecto
                 </Accordion.Header>
@@ -249,6 +251,7 @@ export default function Proyectos() {
                           onChange={handleChangeIdProyecto}
                         />
                       </Form.Group>
+                      <br />
                       <Button
                         variant="primary"
                         type="submit"
@@ -264,6 +267,6 @@ export default function Proyectos() {
           </div>
         </>
       )}
-    </>
+    </div>
   );
 }
